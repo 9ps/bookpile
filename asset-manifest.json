@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/bookpile/static/css/main.e32009b2.css",
+    "main.js": "/bookpile/static/js/main.b43a75f6.js",
+    "static/js/787.b5ff374c.chunk.js": "/bookpile/static/js/787.b5ff374c.chunk.js",
+    "index.html": "/bookpile/index.html",
+    "main.e32009b2.css.map": "/bookpile/static/css/main.e32009b2.css.map",
+    "main.b43a75f6.js.map": "/bookpile/static/js/main.b43a75f6.js.map",
+    "787.b5ff374c.chunk.js.map": "/bookpile/static/js/787.b5ff374c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e32009b2.css",
+    "static/js/main.b43a75f6.js"
+  ]
+}
