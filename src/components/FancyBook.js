@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
 const FancyBook = (props) => {
     const {author, title, pages} = props.book;

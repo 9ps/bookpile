@@ -1,7 +1,7 @@
 import React from 'react';
 import Book from './Book.js';
 import FancyBook from './FancyBook.js';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
 class Table extends React.Component {
     constructor(props){
