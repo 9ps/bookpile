@@ -1,5 +1,7 @@
 A book recording / tracking / display webapp, with some pretty UI features!
 
+---
+
 **Technologies:**
 * React
 * Styled Components
