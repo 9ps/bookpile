@@ -1,20 +1,28 @@
-import './App.css';
 import React from 'react';
 import Table from './components/Table';
 import Form  from './components/Form';
 import Outline from './components/Outline';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       books: this.props.books,
-      pages: 0
+      modal: false,
     }
 
     this.removeBook = this.removeBook.bind(this);
     this.addBook = this.addBook.bind(this);
+    this.addBook = this.addBook.bind(this);
+  }
+
+  flipModal = (event) => {
+    const modal = !this.state.modal;
+
+    this.setState({
+      modal: modal,
+    });
   }
 
   removeBook(index = -1) {
@@ -49,18 +57,58 @@ class App extends React.Component {
 
   render() {
     return (
+      <>
+        <GlobalStyle/>
         <ThemeProvider theme={theme}>
           <Wrapper>
-            <Title>Book App</Title>
+            <Title>BookPile</Title>
             <Outline books={this.state.books} />
             <Table books={this.state.books} removeBook={this.removeBook} />
-            <Form addBook={this.addBook} />
+            {this.state.modal ? <Form flipModal={this.flipModal} addBook={this.addBook} /> : <AddButton onClick={this.flipModal}>Add Book</AddButton>}
           </Wrapper>
       </ThemeProvider>
+    </>
     );
 
   }
 }
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter";
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: "#F1F3F5";
+  }
+`;
+
+const AddButton = styled.button`
+    background-color: ${p => p.theme.w2};
+    color: ${p => p.theme.w7};
+    border: 2px solid ${p => p.theme.w4};
+    border-radius: 999px;
+    display: block;
+    margin: 20px auto;
+    width: 300px;
+    height: 40px;
+
+    :hover {
+        background-color: ${p => p.theme.w3};
+        color: ${p => p.theme.w8};
+        cursor: pointer;
+    }
+    :focus {
+        outline: 3px solid ${p => p.theme.w5};
+        outline-offset: -1px;   
+    }
+`
 
 const Wrapper = styled.div`
   max-width: 600px;

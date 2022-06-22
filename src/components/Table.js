@@ -35,19 +35,27 @@ class Table extends React.Component {
         } else {
             books.forEach((book, index) => {
             rows.push(
-                <FancyBook key={index} book={book}></FancyBook>
+                <FancyBook key={index} index={index} book={book}></FancyBook>
             );
             });
         }
         return (
-            <div>
-                <Heading>Currently Reading:</Heading>
-                <Toggle onClick={this.toggleView}>o</Toggle>
+            <>
+                <Header>
+                    <Heading>Currently Reading:</Heading>
+                    <Toggle onClick={this.toggleView}>o</Toggle>
+                </Header>
                 {rows}
-            </div>
+            </>
         )
     }
 }
+
+const Header = styled.div`
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+`
 
 const Heading = styled.h2`
     font-size: 18px;
@@ -60,6 +68,7 @@ const Toggle = styled.button`
     color: ${props => props.theme.w6};
     padding: 5px;
     width: 40px;
+    height: 40px;
     border: 0;
     font-weight: bold;
     border-radius: 10px;
